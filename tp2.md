@@ -35,8 +35,10 @@ nginx affiche les pages qu'il trouve dans son dossier /usr/share/nginx/html. L'o
 
 Avec la méthode A, la page reste sur votre PC : le conteneur ne fonctionne que sur cette machine. Pour pouvoir livrer le site ailleurs, on copie la page à l'intérieur d'une image.
 Créer le fichier site/Dockerfile, sans extension, qui contient ces deux lignes :
+```bash
 FROM nginx:1.27-alpine
 COPY index.html /usr/share/nginx/html/index.html
+```
 Avec Powershell
 ```bash
 Set-Content -Path site\Dockerfile -Encoding ascii -Value "FROM nginx:1.27-alpine`nCOPY index.html /usr/share/nginx/html/index.html"
