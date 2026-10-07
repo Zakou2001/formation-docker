@@ -1,20 +1,40 @@
-# Un conteneur qui affiche un message puis s'arrête
-''''
-docker run hello-world
-''''
-# Un serveur web lancé en arrière-plan, joignable sur le port 8081
-docker run -d -p 8081:80 --name web nginx:1.27
+## TP — Premières commandes Docker
 
-# Les conteneurs en cours, puis ce que le serveur a écrit
+
+# 1. Premier conteneur
+
+```bash
+docker run hello-world
+```
+
+# 2. Serveur Nginx en arrière-plan
+
+```bash
+docker run -d -p 8081:80 --name web nginx:1.27
+```
+
+# 3. Vérifier et consulter les logs
+
+```bash
 docker ps
 docker logs web
+```
 
-# Entrer dans le conteneur, regarder les fichiers du site, ressortir
+# 4. Entrer dans le conteneur
+
+```bash
 docker exec -it web sh
+```
+Une fois dans le conteneur
+
+```bash
 ls /usr/share/nginx/html
 exit
+```
 
-# Arrêter, constater qu'il existe encore, puis le supprimer
+# 5. Arrêter et supprimer
+```bash
 docker stop web
 docker ps -a
 docker rm web
+```
